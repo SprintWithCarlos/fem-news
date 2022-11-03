@@ -1,6 +1,7 @@
 .sidebar
   // margin-inline: auto
-  width: min(100% - 2rem, 250px )
+  // width: min(100% - 2rem, 250px )
+  width: 100%
   background-color: white
   display: flex
   flex-direction: column
@@ -10,12 +11,20 @@
   flex: 1.5
   padding: 1rem
   height: 100vh
-  // position: absolute
+  position: absolute
+  z-index: 10
+  right: -20px
+  &__top
+    width: 100%
+    text-align: right
+    padding-inline-end: 12px
   // top: 50px
   // &>*
   //   margin-bottom: 1rem
   .close
-    width: 15px
+    width: 40px
+    margin-inline-end: 0.5rem
+    margin-block-start: 0.5rem
     svg
       fill: black
   &__row
@@ -72,8 +81,8 @@
       background-color: #fff
     .dark
       background-color: #000
-  svg
-    height: 100%
+  // svg
+  //   height: 100%
   a
     display: flex
     width: 100%

@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import Icon from "@/design-system/atoms/icon/Icon";
 import { capitalize } from "@/utils";
-import { ReactComponent as CloseIcon } from "@/assets/icon-close.svg";
+import { ReactComponent as CloseIcon } from "@/assets/images/icon-menu-close.svg";
 import "./sidebar.sass";
 
 type SidebarProps = {
@@ -20,19 +20,21 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
 
   return (
     <div data-testid="sidebar" className="sidebar">
-      <button
-        aria-label="close sidebar"
-        type="button"
-        data-testid="draw-c"
-        className="close"
-        onClick={() => state.setIsOpen(!state.isOpen)}
-      >
-        <Icon
-          name="close"
-          src={<CloseIcon />}
-          size={{ width: "15px", height: "15px" }}
-        />
-      </button>
+      <div className="sidebar__top">
+        <button
+          aria-label="close sidebar"
+          type="button"
+          data-testid="draw-c"
+          className="close"
+          onClick={() => state.setIsOpen(!state.isOpen)}
+        >
+          <Icon
+            name="close"
+            src={<CloseIcon />}
+            size={{ width: "40px", height: "40px" }}
+          />
+        </button>
+      </div>
       <ul>
         {content.map((item) => (
           <li>

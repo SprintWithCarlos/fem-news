@@ -1,66 +1,40 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { ReactComponent as Logo } from "@/assets/logo.svg";
-import { ReactComponent as CartIcon } from "@/assets/icon-cart.svg";
+import { ReactComponent as Logo } from "@/assets/images/logo.svg";
 import "./navbar.sass";
-import Avatar from "@/design-system/atoms/avatar/Avatar";
 import Drawer from "@/design-system/molecules/drawer/Drawer";
 import Icon from "@/design-system/atoms/icon/Icon";
-import CartModal from "../cartModal/CartModal";
-import { CartContext } from "@/state/cartContext";
 import { capitalize } from "@/utils";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { cart } = useContext(CartContext);
 
   const content = [
-    { name: "collections", url: "/collections" },
-    { name: "men", url: "/men" },
-    { name: "women", url: "/women" },
-    { name: "about", url: "/about" },
-    { name: "contact", url: "/contact" },
+    { name: "home", url: "/home" },
+    { name: "new", url: "/new" },
+    { name: "popular", url: "/popular" },
+    { name: "trending", url: "/trending" },
+    { name: "categories", url: "/categories" },
   ];
   return (
     <nav data-testid="navbar" className="navbar">
       <div className="navbar-mobile">
         <div className="left">
-          <Drawer position="left" content={content} />
           <span className="logo">
             <NavLink to="/" aria-label="go to home">
-              <Logo />
+              <Icon
+                src={<Logo />}
+                name="logo"
+                size={{ height: "40px", width: "40px" }}
+              />
             </NavLink>
           </span>
         </div>
+
         <div className="right">
-          <button
-            type="button"
-            aria-label="open cart mobile view"
-            data-testid="openCartMobile"
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
-          >
-            <Icon
-              counter={
-                cart.quantity && cart.quantity > 0 ? cart.quantity : undefined
-              }
-              name="cart-mobile"
-              src={<CartIcon />}
-              size={{ height: "auto", width: "22px" }}
-            />
-          </button>
-          {isOpen && <CartModal />}
-          <div className="avatar">
-            <Avatar
-              src="/image-avatar.png"
-              className="round"
-              alt="avatar"
-              size={{ width: "20", height: "20" }}
-            />
-          </div>
+          <Drawer position="right" content={content} />
         </div>
       </div>
       <div className="navbar">
@@ -79,32 +53,7 @@ const Navbar: React.FC = () => {
           </span>
         </span>
         <span className="right">
-          <button
-            type="button"
-            aria-label="open cart desktop view"
-            data-testid="openCartDesktop"
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
-          >
-            <Icon
-              counter={
-                cart.quantity && cart.quantity > 0 ? cart.quantity : undefined
-              }
-              name="cart-desktop"
-              src={<CartIcon />}
-              size={{ height: "auto", width: "22px" }}
-            />
-          </button>
-          {isOpen && <CartModal />}
-          <div className="avatar">
-            <Avatar
-              src="/image-avatar.png"
-              className="round"
-              alt="avatar"
-              size={{ width: "20", height: "20" }}
-            />
-          </div>
+          <div className="avatar"></div>
         </span>
       </div>
     </nav>
