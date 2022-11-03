@@ -6,15 +6,19 @@
   display: flex
   justify-content: center
   align-items: center
-  border-radius: 8px
-  padding: 0.5rem 0
-  width: 100%
+  // border-radius: 8px
+  padding: 0.8rem 2rem
+  margin: 1rem 0
+  // width: 100%
+  // min-height: 50px
   font-weight: bold
   text-align: center
   text-decoration: none
   cursor: pointer
   transition: all 0.2s ease-in-out
-  min-height: 20px
+  // min-height: 20px
+  // @media screen and (max-width: $tablet)
+  //   width: 50%
 
   &--primary
     background-color: $primary-orange
@@ -29,6 +33,11 @@
         color: $primary-orange
         background-color: white
         outline: solid 1px $primary-orange
+  &--danger
+    background-color: $red
+    p
+      color: white
+      letter-spacing: 4px
 
   &--disabled
     opacity: 50%

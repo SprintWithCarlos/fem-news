@@ -20,30 +20,35 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
 
   return (
     <div data-testid="sidebar" className="sidebar">
-      <div className="sidebar__top">
-        <button
-          aria-label="close sidebar"
-          type="button"
-          data-testid="draw-c"
-          className="close"
-          onClick={() => state.setIsOpen(!state.isOpen)}
-        >
-          <Icon
-            name="close"
-            src={<CloseIcon />}
-            size={{ width: "40px", height: "40px" }}
-          />
-        </button>
+      {state.isOpen && <div className="modal" />}
+      <div
+        className={state.isOpen ? "container container-isOpen" : "container"}
+      >
+        <div className="sidebar__top">
+          <button
+            aria-label="close sidebar"
+            type="button"
+            data-testid="draw-c"
+            className="close"
+            onClick={() => state.setIsOpen(!state.isOpen)}
+          >
+            <Icon
+              name="close"
+              src={<CloseIcon />}
+              size={{ width: "px", height: "px" }}
+            />
+          </button>
+        </div>
+        <ul>
+          {content.map((item) => (
+            <li>
+              <Link to={item.url} key={item.name}>
+                <span>{capitalize(item.name)}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul>
-        {content.map((item) => (
-          <li>
-            <Link to={item.url} key={item.name}>
-              <span>{capitalize(item.name)}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };

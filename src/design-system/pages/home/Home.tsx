@@ -1,15 +1,19 @@
 import Navbar from "@/design-system/organisms/navbar/Navbar";
-import Product from "@/design-system/organisms/product/Product";
-import Slider from "@/design-system/organisms/slider/Slider";
-import "./home.sass";
+import Featured from "@/design-system/organisms/featured/Featured";
+import Ranking from "@/design-system/organisms/ranking/Ranking";
 
-const Home: React.FC = () => (
-  <div data-testid="home" className="home">
-    <Navbar />
-    <div className="wrapper">
-      <Slider />
-      <Product />
+import "./home.sass";
+import { useState } from "react";
+
+const Home: React.FC = () => {
+  return (
+    <div data-testid="home" className="home">
+      <Navbar />
+      <div className="wrapper">
+        <Featured />
+        <Ranking />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 export default Home;
