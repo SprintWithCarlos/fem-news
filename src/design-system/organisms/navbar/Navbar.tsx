@@ -41,9 +41,15 @@ const Navbar: React.FC = () => {
         <span className="left">
           <span className="logo">
             <NavLink to="/" aria-label="go to home">
-              <Logo />
+              <Icon
+                src={<Logo />}
+                name="logo"
+                size={{ height: "60px", width: "60px" }}
+              />
             </NavLink>
           </span>
+        </span>
+        <span className="right">
           <span className="menu">
             {content.map((item) => (
               <NavLink to={item.url} className="menu-item" key={item.url}>
@@ -51,9 +57,6 @@ const Navbar: React.FC = () => {
               </NavLink>
             ))}
           </span>
-        </span>
-        <span className="right">
-          <div className="avatar"></div>
         </span>
       </div>
     </nav>

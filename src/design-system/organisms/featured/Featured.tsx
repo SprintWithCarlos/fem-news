@@ -33,21 +33,28 @@ const Featured: React.FC = () => {
   return (
     <div data-testid="featured" className="featured">
       <div className="featured__first-block">
-        <div className="block">
-          <Picture
-            desktop="image-web-3-desktop.jpg"
-            mobile="image-web-3-mobile.jpg"
-          />
-          <h2> The Bright Future of Web 3.0?</h2>
-          <p>
-            We dive into the next evolution of the web that claims to put the
-            power of the platforms back into the hands of the people. But is it
-            really fulfilling its promise?
-          </p>
-          <Button type={ButtonClass.danger} onClick={() => {}}>
-            <p>READ MORE</p>
-          </Button>
+        <Picture
+          desktop="image-web-3-desktop.jpg"
+          mobile="image-web-3-mobile.jpg"
+        />
+
+        <div className="pivot">
+          <div className="block">
+            <h2> The Bright Future of Web 3.0?</h2>
+          </div>
+          <div className="block">
+            <p>
+              We dive into the next evolution of the web that claims to put the
+              power of the platforms back into the hands of the people. But is
+              it really fulfilling its promise?
+            </p>
+            <Button type={ButtonClass.danger} onClick={() => {}}>
+              <p>READ MORE</p>
+            </Button>
+          </div>
         </div>
+      </div>
+      <div className="featured__second-block">
         <div className="block block-black">
           <h3>New</h3>
           {content.map((item: NewProps, i: number) => {
@@ -55,7 +62,6 @@ const Featured: React.FC = () => {
           })}
         </div>
       </div>
-      <div className="featured__second-block"></div>
     </div>
   );
 };

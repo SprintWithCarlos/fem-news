@@ -24,6 +24,7 @@ const RankedItem = ({ content }: { content: Record<string, any> }) => {
       <div className="block">
         <img src={image} alt={title} />
       </div>
+
       <div className="block">
         <h3>{`0${index + 1}`}</h3>
         <h4>{title}</h4>
