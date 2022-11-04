@@ -3,7 +3,12 @@ import Picture from "./Picture";
 
 describe("Picture", () => {
   beforeEach(() => {
-    render(<Picture />);
+    render(
+      <Picture
+        desktop="/public/image-web-3-desktop.jpg"
+        mobile="/public/image-web-3-mobile.jpg"
+      />
+    );
   });
 
   test("renders ", async () => {
@@ -11,4 +16,3 @@ describe("Picture", () => {
     expect(pictureComponent).toBeInTheDocument();
   });
 });
-

@@ -58,7 +58,13 @@ const Featured: React.FC = () => {
         <div className="block block-black">
           <h3>New</h3>
           {content.map((item: NewProps, i: number) => {
-            return <New content={item} isLast={content.length === i + 1} />;
+            return (
+              <New
+                content={item}
+                isLast={content.length === i + 1}
+                key={item.title}
+              />
+            );
           })}
         </div>
       </div>

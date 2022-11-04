@@ -3,17 +3,29 @@ import Featured from "@/design-system/organisms/featured/Featured";
 import Ranking from "@/design-system/organisms/ranking/Ranking";
 
 import "./home.sass";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Loading from "@/design-system/atoms/loading/Loading";
 
 const Home: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+      console.log("Dom loaded");
+    }, 1000);
+  });
   return (
-    <div data-testid="home" className="home">
-      <Navbar />
-      <div className="wrapper">
-        <Featured />
-        <Ranking />
+    <>
+      {isLoading && <Loading />}
+      <div data-testid="home" className="home">
+        <Navbar />
+        <div className="wrapper">
+          <Featured />
+          <Ranking />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 export default Home;

@@ -41,7 +41,7 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
         </div>
         <ul>
           {content.map((item) => (
-            <li>
+            <li key={item.name}>
               <Link to={item.url} key={item.name}>
                 <span>{capitalize(item.name)}</span>
               </Link>

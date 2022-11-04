@@ -42,7 +42,7 @@ const Ranking: React.FC = () => {
         content = item;
         content["index"] = index;
 
-        return <RankedItem content={content} />;
+        return <RankedItem content={content} key={item.title} />;
       })}
     </div>
   );
